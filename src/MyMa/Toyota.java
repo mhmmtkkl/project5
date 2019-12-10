@@ -1,13 +1,13 @@
-package MyMain;
+package MyMa;
 
 import java.text.DecimalFormat;
 
-public class Toyota  extends Car_Lease implements Car_Interface{
+public class Toyota  extends carLease implements carInterface {
 
 
     /*
-    get the connection with CarLease and Car_Interface
-        after the connection you should have constructor ,  lease_MonthlyCalculator method and is_aligable method
+    get the connection with carLease and carInterface
+        after the connection you should have constructor ,  leaseMonthlyCalculator method and isAligable method
 
     */
     public Toyota(String name, String Which_Model, int age, int salary, int Total_Cost, int downPayment, int termofLease, int leaseFee, double TaxRate, double MoneyFactor) {
@@ -17,15 +17,15 @@ public class Toyota  extends Car_Lease implements Car_Interface{
     /*
              lease_MonthlyCalculator   --->> return type is String
 
-            calculation is --->> calculate_Depreciation + calculate_Interest + Taxes (these methods are coming from the Car_Lease method)
+            calculation is --->> calculateDepreciation + calculateInterest + Taxes (these methods are coming from the carLease method)
 
             hint:  after the calculation result result will be 2.11222211 you need to change result as a 2.11
 
     */
     @Override
-    public String lease_MonthlyCalculator() {
+    public String leaseMonthlyCalculator() {
 
-        double result =  calculate_Depreciation() + calculate_Interest() + Taxes();
+        double result =  calculateDepreciation() + calculateInterest() + taxes();
 
         DecimalFormat df = new DecimalFormat("0.00");
 
@@ -36,17 +36,17 @@ public class Toyota  extends Car_Lease implements Car_Interface{
     }
 
      /*
-         is_aligable
+         isAligable
 
             if the salary is more then Toyota_MinIncome then true else false
 
      */
      @Override
-     public boolean is_aligable() {
+     public boolean isAligable() {
 
          boolean result = false;
 
-         if(getSalary()>Toyota_MinIncome){
+         if(getSalary()>toyotaMinIncome){
 
              result = true;
 
@@ -57,19 +57,19 @@ public class Toyota  extends Car_Lease implements Car_Interface{
      }
 
       /*
-        method name is Total_Calculator
+        method name is totalCalculator
 
         return type is String
 
-        calculation :  (lease_MonthlyCalculator * termofLease) + documentation_fees
+        calculation :  (leaseMonthlyCalculator * termofLease) + documentationFees
 
         hint:  after the calculation result result will be 2.11222211 you need to change result as a 2.11
 
      */
-      public String Total_Calculator(){
+      public String totalCalculator(){
 
-          double num = Double.parseDouble(lease_MonthlyCalculator());
-          double result = (num * termofLease) + documentation_Fees;
+          double num = Double.parseDouble(leaseMonthlyCalculator());
+          double result = (num * termofLease) + documentationFees;
 
           DecimalFormat df = new DecimalFormat("0.00");
 
